@@ -75,20 +75,20 @@ export default function DesignerPage() {
   const errorCount = validationResult?.errors.length ?? 0;
 
   return (
-    <div className="flex h-screen bg-[#03071d] text-white overflow-hidden">
+    <div className="flex h-screen bg-[#030712] text-white overflow-hidden font-body">
       <AppSidebar />
       
       <div className="flex-1 flex flex-col min-w-0 relative">
         {/* ── Topbar ─────────────────────────────────────────── */}
-        <header className="flex items-center justify-between px-8 h-16 border-b border-white/5 bg-[#03071d]/80 backdrop-blur-xl z-30 flex-shrink-0">
+        <header className="flex items-center justify-between px-10 h-20 border-b border-white/[0.05] bg-[#030712]/60 backdrop-blur-2xl z-30 flex-shrink-0">
           {/* Status/Breadcrumb */}
-          <div className="flex items-center gap-4">
-            <Link href="/" className="p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/5">
-              <Workflow className="w-4 h-4 text-blue-400" />
+          <div className="flex items-center gap-6">
+            <Link href="/" className="w-10 h-10 flex items-center justify-center rounded-2xl bg-white/5 hover:bg-white/10 transition-all duration-300 border border-white/5 group shadow-sm">
+              <Workflow className="w-5 h-5 text-blue-400 group-hover:scale-110 transition-transform" />
             </Link>
-            <div className="h-4 w-px bg-white/10 mx-1" />
+            <div className="h-6 w-px bg-white/10 mx-1" />
             {editingName ? (
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-2">
                 <input
                   autoFocus
                   value={tempName}
@@ -101,51 +101,51 @@ export default function DesignerPage() {
                     if (e.key === 'Escape') setEditingName(false);
                   }}
                   onBlur={() => setEditingName(false)}
-                  className="text-sm font-bold bg-white/5 border border-blue-500/50 rounded-lg px-3 py-1.5 text-white outline-none w-64 shadow-[0_0_20px_rgba(37,99,235,0.2)]"
+                  className="text-sm font-bold bg-white/5 border border-blue-500/50 rounded-xl px-4 py-2 text-white outline-none w-72 shadow-[0_0_30px_rgba(37,99,235,0.15)]"
                 />
               </div>
             ) : (
               <button
                 onClick={() => { setTempName(workflowName); setEditingName(true); }}
-                className="flex items-center gap-2.5 px-3 py-1.5 rounded-xl hover:bg-white/5 transition-all group"
+                className="flex items-center gap-3 px-4 py-2 rounded-2xl hover:bg-white/5 transition-all group"
               >
-                <span className="text-sm font-bold text-white/90 group-hover:text-white transition-colors">{workflowName}</span>
-                <Edit2 className="w-3.5 h-3.5 text-white/20 group-hover:text-white/60 transition-colors" />
+                <span className="text-base font-black text-white/90 group-hover:text-white transition-colors tracking-tight">{workflowName}</span>
+                <Edit2 className="w-4 h-4 text-white/20 group-hover:text-white/60 transition-colors" />
               </button>
             )}
           </div>
 
           {/* Right side: validation + actions */}
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-3">
+          <div className="flex items-center gap-8">
+            <div className="flex items-center gap-4">
               {errorCount > 0 && (
-                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-400 text-[10px] font-black uppercase tracking-widest shadow-lg shadow-rose-500/5">
-                  <AlertTriangle className="w-3.5 h-3.5" />
+                <div className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-400 text-[11px] font-black uppercase tracking-widest shadow-lg shadow-rose-500/5">
+                  <AlertTriangle className="w-4 h-4 animate-pulse" />
                   {errorCount} Critical Issues
                 </div>
               )}
               {validationResult?.valid && (
-                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-black uppercase tracking-widest shadow-lg shadow-emerald-500/5">
-                  <Check className="w-3.5 h-3.5" />
+                <div className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-black uppercase tracking-widest shadow-lg shadow-emerald-500/5">
+                  <Check className="w-4 h-4" />
                   Graph Verified
                 </div>
               )}
             </div>
             
-            <div className="h-6 w-px bg-white/5 mx-1" />
+            <div className="h-8 w-px bg-white/10 mx-1" />
             
-            <div className="flex items-center gap-3">
-              <button className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-white/60 hover:text-white transition-all border border-white/5 shadow-sm">
-                <Share2 className="w-4 h-4" />
+            <div className="flex items-center gap-4">
+              <button className="w-11 h-11 flex items-center justify-center rounded-2xl bg-white/5 hover:bg-white/10 text-white/40 hover:text-white transition-all duration-300 border border-white/5 shadow-sm">
+                <Share2 className="w-5 h-5" />
               </button>
-              <button className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-white/60 hover:text-white transition-all border border-white/5 shadow-sm">
-                <Save className="w-4 h-4" />
+              <button className="w-11 h-11 flex items-center justify-center rounded-2xl bg-white/5 hover:bg-white/10 text-white/40 hover:text-white transition-all duration-300 border border-white/5 shadow-sm">
+                <Save className="w-5 h-5" />
               </button>
               <button
                 onClick={handleSimulate}
-                className="flex items-center gap-2.5 px-6 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs font-bold transition-all shadow-xl shadow-blue-600/20 active:scale-95 border border-blue-400/20 group"
+                className="flex items-center gap-3 px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-2xl text-sm font-black transition-all duration-300 shadow-[0_10px_30px_rgba(37,99,235,0.3)] active:scale-95 border border-blue-400/20 group"
               >
-                <Play className="w-3.5 h-3.5 fill-current group-hover:scale-110 transition-transform" />
+                <Play className="w-4 h-4 fill-current group-hover:scale-110 transition-transform" />
                 Run Simulation
               </button>
             </div>
@@ -155,10 +155,10 @@ export default function DesignerPage() {
         {/* ── Main Workspace ─────────────────────────────── */}
         <main className="flex-1 relative w-full h-full overflow-hidden bg-[#030712]">
           {/* Canvas Background Grid/Dots */}
-          <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-0" 
+          <div className="absolute inset-0 opacity-[0.04] pointer-events-none z-0" 
                style={{ 
-                 backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)',
-                 backgroundSize: '40px 40px' 
+                 backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
+                 backgroundSize: '48px 48px' 
                }} />
 
           <ReactFlowProvider>
@@ -168,22 +168,22 @@ export default function DesignerPage() {
             </div>
 
             {/* Floating UI Overlays */}
-            <div className="absolute inset-0 pointer-events-none z-20 p-10">
+            <div className="absolute inset-0 pointer-events-none z-20 p-12">
               <div className="h-full w-full relative flex items-start justify-between">
                 {/* Node Palette - Floating Card */}
-                <div className="w-80 h-fit max-h-full glass-morphism rounded-[2.5rem] border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.5)] pointer-events-auto overflow-hidden flex flex-col animate-reveal">
+                <div className="w-80 h-fit max-h-full glass-morphism rounded-[2.5rem] border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.6)] pointer-events-auto overflow-hidden flex flex-col animate-reveal">
                   <Sidebar />
                 </div>
 
                 {/* Configuration Panel - Floating Card */}
-                <div className="w-88 h-fit max-h-full glass-morphism rounded-[2.5rem] border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.5)] pointer-events-auto overflow-hidden flex flex-col animate-reveal" style={{ animationDelay: '0.1s' }}>
+                <div className="w-96 h-fit max-h-full glass-morphism rounded-[2.5rem] border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.6)] pointer-events-auto overflow-hidden flex flex-col animate-reveal" style={{ animationDelay: '0.1s' }}>
                   <NodeFormPanel />
                 </div>
               </div>
 
               {/* Bottom Toolbar - Floating Pill */}
               <div className="absolute bottom-12 left-1/2 -translate-x-1/2 pointer-events-auto animate-reveal" style={{ animationDelay: '0.2s' }}>
-                <div className="glass-morphism rounded-3xl p-3 border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex items-center gap-2">
+                <div className="glass-morphism rounded-[2rem] p-2 border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.5)] flex items-center gap-2">
                   <CanvasToolbar />
                 </div>
               </div>
@@ -204,3 +204,4 @@ export default function DesignerPage() {
     </div>
   );
 }
+
