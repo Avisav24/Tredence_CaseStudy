@@ -153,10 +153,13 @@ export default function DesignerPage() {
         </header>
 
         {/* ── Main Workspace ─────────────────────────────── */}
-        <main className="flex-1 relative w-full h-full overflow-hidden bg-[#03071d]">
+        <main className="flex-1 relative w-full h-full overflow-hidden bg-[#030712]">
           {/* Canvas Background Grid/Dots */}
-          <div className="absolute inset-0 opacity-20 pointer-events-none z-0" 
-               style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-0" 
+               style={{ 
+                 backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)',
+                 backgroundSize: '40px 40px' 
+               }} />
 
           <ReactFlowProvider>
             {/* Main Canvas */}
@@ -165,22 +168,22 @@ export default function DesignerPage() {
             </div>
 
             {/* Floating UI Overlays */}
-            <div className="absolute inset-0 pointer-events-none z-20 p-8">
+            <div className="absolute inset-0 pointer-events-none z-20 p-10">
               <div className="h-full w-full relative flex items-start justify-between">
-                {/* Node Palette */}
-                <div className="w-72 h-full glass-morphism-dark rounded-[2.5rem] border border-white/5 shadow-2xl pointer-events-auto overflow-hidden flex flex-col">
+                {/* Node Palette - Floating Card */}
+                <div className="w-80 h-fit max-h-full glass-morphism rounded-[2.5rem] border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.5)] pointer-events-auto overflow-hidden flex flex-col animate-reveal">
                   <Sidebar />
                 </div>
 
-                {/* Configuration Panel */}
-                <div className="w-80 h-full glass-morphism-dark rounded-[2.5rem] border border-white/5 shadow-2xl pointer-events-auto overflow-hidden flex flex-col">
+                {/* Configuration Panel - Floating Card */}
+                <div className="w-88 h-fit max-h-full glass-morphism rounded-[2.5rem] border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.5)] pointer-events-auto overflow-hidden flex flex-col animate-reveal" style={{ animationDelay: '0.1s' }}>
                   <NodeFormPanel />
                 </div>
               </div>
 
-              {/* Bottom Toolbar */}
-              <div className="absolute bottom-10 left-1/2 -translate-x-1/2 pointer-events-auto">
-                <div className="glass-morphism-dark rounded-2xl p-2 border border-white/10 shadow-2xl flex items-center gap-1">
+              {/* Bottom Toolbar - Floating Pill */}
+              <div className="absolute bottom-12 left-1/2 -translate-x-1/2 pointer-events-auto animate-reveal" style={{ animationDelay: '0.2s' }}>
+                <div className="glass-morphism rounded-3xl p-3 border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex items-center gap-2">
                   <CanvasToolbar />
                 </div>
               </div>

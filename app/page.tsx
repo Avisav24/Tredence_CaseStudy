@@ -22,52 +22,46 @@ export default function LandingPage() {
       <Navbar dark />
 
       {/* ── Hero Section ────────────────────────────────────────── */}
-      <section className="relative pt-64 pb-32 lg:pt-80 lg:pb-48 bg-[#03071d] text-white overflow-hidden">
-        {/* Animated Background Elements */}
+      <section className="relative pt-80 pb-40 lg:pt-96 lg:pb-64 bg-[#030712] text-white overflow-hidden">
+        {/* Advanced Background System */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] rounded-full bg-blue-600/20 blur-[120px] animate-pulse" />
-          <div className="absolute top-[10%] -right-[10%] w-[60%] h-[60%] rounded-full bg-indigo-600/20 blur-[120px] animate-pulse" style={{ animationDelay: '2s' }} />
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[40%] bg-gradient-to-t from-[#03071d] to-transparent z-10" />
+          <div className="absolute -top-[30%] -left-[10%] w-[80%] h-[80%] rounded-full bg-blue-600/10 blur-[160px] animate-pulse" />
+          <div className="absolute top-[20%] -right-[15%] w-[70%] h-[70%] rounded-full bg-indigo-600/10 blur-[160px] animate-pulse" style={{ animationDelay: '3s' }} />
+          <div className="absolute -bottom-[20%] left-1/4 w-[60%] h-[60%] rounded-full bg-violet-600/10 blur-[160px] animate-pulse" style={{ animationDelay: '5s' }} />
           
-          {/* Grid Pattern */}
-          <div className="absolute inset-0 opacity-[0.15]" 
+          {/* Animated Mesh Grid */}
+          <div className="absolute inset-0 opacity-[0.05]" 
                style={{ 
                  backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)',
-                 backgroundSize: '40px 40px'
+                 backgroundSize: '60px 60px'
                }} />
+          
+          <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-t from-[#030712] to-transparent z-10" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-8 lg:px-12 flex flex-col items-center text-center z-20">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 border border-white/10 mb-12 animate-reveal shadow-2xl backdrop-blur-md">
+          <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full glass-morphism border border-white/10 mb-16 animate-reveal shadow-2xl">
             <Sparkles className="w-4 h-4 text-blue-400" />
-            <span className="text-[11px] font-black tracking-[0.25em] uppercase text-white/90">
-              The Future of HR Operations
+            <span className="text-[12px] font-black tracking-[0.3em] uppercase text-white/90">
+              The Next Era of HR Ops
             </span>
           </div>
 
-          <h1 className="display-xl mb-12 animate-reveal text-balance leading-[1.05]" style={{ animationDelay: '0.1s' }}>
+          <h1 className="display-xl mb-14 animate-reveal tracking-[-0.05em] leading-[0.95]" style={{ animationDelay: '0.1s' }}>
             Design HR Workflows <br />
-            <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 via-violet-400 to-blue-600 bg-clip-text text-transparent">
               Without Limits.
             </span>
           </h1>
 
-          <p className="body-lg max-w-3xl text-white/50 mb-16 animate-reveal text-balance leading-relaxed" style={{ animationDelay: '0.2s' }}>
-            FlowHR is the ultimate visual playground for HR teams. Build, simulate, and automate complex 
-            onboarding, performance reviews, and document workflows with zero code.
+          <p className="body-lg max-w-3xl text-white/40 mb-20 animate-reveal text-balance leading-relaxed font-medium" style={{ animationDelay: '0.2s' }}>
+            FlowHR is the ultimate visual playground for enterprise HR teams. Build, simulate, and automate complex 
+            onboarding, performance reviews, and global workflows with zero code.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 animate-reveal items-center justify-center" style={{ animationDelay: '0.3s' }}>
-            <Link href="/designer" className="btn-blue h-16 px-12 text-lg group">
+          <div className="flex flex-col sm:flex-row gap-8 animate-reveal items-center justify-center" style={{ animationDelay: '0.3s' }}>
+            <Link href="/designer" className="btn-primary h-18 px-14 text-lg group">
               Get Started for Free
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link href="/docs" className="btn-secondary h-16 px-12 text-lg bg-white/5 border-white/10 text-white hover:bg-white/10">
-              Watch Demo
-            </Link>
-          </div>
-
-          {/* Premium Preview Device */}
           <div className="mt-24 w-full max-w-6xl rounded-[2.5rem] border border-white/10 bg-white/5 p-4 shadow-[0_0_100px_rgba(37,99,235,0.15)] animate-reveal" style={{ animationDelay: '0.4s' }}>
             <div className="aspect-[16/10] rounded-[2rem] bg-[#0A0F1E] relative overflow-hidden border border-white/5">
               {/* Canvas Mockup Content */}
