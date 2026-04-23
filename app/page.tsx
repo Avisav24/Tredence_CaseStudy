@@ -62,6 +62,14 @@ export default function LandingPage() {
           <div className="flex flex-col sm:flex-row gap-8 animate-reveal items-center justify-center" style={{ animationDelay: '0.3s' }}>
             <Link href="/designer" className="btn-primary h-18 px-14 text-lg group">
               Get Started for Free
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform ml-2" />
+            </Link>
+            <button className="btn-secondary h-18 px-14 text-lg">
+              Watch Experience
+            </button>
+          </div>
+
+          {/* Premium Preview Device */}
           <div className="mt-24 w-full max-w-6xl rounded-[2.5rem] border border-white/10 bg-white/5 p-4 shadow-[0_0_100px_rgba(37,99,235,0.15)] animate-reveal" style={{ animationDelay: '0.4s' }}>
             <div className="aspect-[16/10] rounded-[2rem] bg-[#0A0F1E] relative overflow-hidden border border-white/5">
               {/* Canvas Mockup Content */}
