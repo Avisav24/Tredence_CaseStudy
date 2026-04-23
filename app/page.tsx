@@ -10,62 +10,105 @@ import {
   ArrowRight, 
   Play, 
   Layers, 
-  Workflow 
+  Workflow,
+  Sparkles,
+  MousePointer2,
+  Cpu
 } from 'lucide-react';
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
+    <div className="min-h-screen flex flex-col bg-white overflow-x-hidden selection:bg-blue-600/20">
       <Navbar dark />
 
       {/* ── Hero Section ────────────────────────────────────────── */}
-      <section className="relative pt-48 pb-20 lg:pt-56 lg:pb-32 bg-[#03071d] text-white">
+      <section className="relative pt-48 pb-32 lg:pt-64 lg:pb-48 bg-[#03071d] text-white overflow-hidden">
+        {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-violet-600/10 blur-[120px]" />
-          <div className="absolute top-[10%] -right-[10%] w-[50%] h-[50%] rounded-full bg-blue-600/10 blur-[120px]" />
+          <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] rounded-full bg-blue-600/20 blur-[120px] animate-pulse" />
+          <div className="absolute top-[10%] -right-[10%] w-[60%] h-[60%] rounded-full bg-indigo-600/20 blur-[120px] animate-pulse" style={{ animationDelay: '2s' }} />
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[40%] bg-gradient-to-t from-[#03071d] to-transparent z-10" />
+          
+          {/* Grid Pattern */}
+          <div className="absolute inset-0 opacity-[0.15]" 
+               style={{ 
+                 backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)',
+                 backgroundSize: '40px 40px'
+               }} />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-8 lg:px-12 flex flex-col items-center text-center pt-24 lg:pt-32">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-8 animate-fade-in">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-            <span className="text-[11px] font-bold tracking-widest uppercase text-white/60">
-              New: Simulation Engine 2.0 is live
+        <div className="relative max-w-7xl mx-auto px-8 lg:px-12 flex flex-col items-center text-center z-20">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-10 animate-reveal shadow-2xl backdrop-blur-md">
+            <Sparkles className="w-4 h-4 text-blue-400" />
+            <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-white/80">
+              The Future of HR Operations
             </span>
           </div>
 
-          <h1 className="display-xl mb-8 animate-fade-in-up">
+          <h1 className="display-xl mb-10 animate-reveal text-balance" style={{ animationDelay: '0.1s' }}>
             Design HR Workflows <br />
-            <span className="text-blue-500">Visually.</span>
+            <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-500 bg-clip-text text-transparent">
+              Without Limits.
+            </span>
           </h1>
 
-          <p className="body-lg max-w-2xl text-white/60 mb-12 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            The modern standard for HR automation. Build onboarding, approvals, and automated documents 
-            with a powerful drag-and-drop canvas. No code required.
+          <p className="body-lg max-w-3xl text-white/50 mb-16 animate-reveal text-balance" style={{ animationDelay: '0.2s' }}>
+            FlowHR is the ultimate visual playground for HR teams. Build, simulate, and automate complex 
+            onboarding, performance reviews, and document workflows with zero code.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <Link href="/designer" className="btn-blue h-14 px-10 text-lg">
-              Open Designer
-              <ArrowRight className="w-5 h-5" />
+          <div className="flex flex-col sm:flex-row gap-6 animate-reveal" style={{ animationDelay: '0.3s' }}>
+            <Link href="/designer" className="btn-blue h-16 px-12 text-lg group">
+              Get Started for Free
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link href="/docs" className="btn-secondary h-14 px-10 text-lg">
-              Documentation
+            <Link href="/docs" className="btn-secondary h-16 px-12 text-lg bg-white/5 border-white/10 text-white hover:bg-white/10">
+              Watch Demo
             </Link>
           </div>
 
-          {/* Abstract Canvas Preview */}
-          <div className="mt-20 w-full max-w-5xl rounded-2xl border border-white/10 bg-white/5 p-2 shadow-2xl animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-            <div className="aspect-[16/9] rounded-xl bg-[#0A0F1E] flex items-center justify-center relative overflow-hidden border border-white/5">
-              <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
-              <div className="relative z-10 flex flex-col items-center gap-6">
-                <div className="w-64 h-16 rounded-xl border border-blue-500/50 bg-blue-500/10 flex items-center px-4 gap-3">
-                  <Workflow className="w-5 h-5 text-blue-400" />
-                  <div className="h-2 w-32 bg-blue-400/30 rounded" />
-                </div>
-                <div className="w-px h-12 bg-white/10" />
-                <div className="w-64 h-16 rounded-xl border border-white/10 bg-white/5 flex items-center px-4 gap-3">
-                  <Layers className="w-5 h-5 text-white/40" />
-                  <div className="h-2 w-24 bg-white/20 rounded" />
+          {/* Premium Preview Device */}
+          <div className="mt-24 w-full max-w-6xl rounded-[2.5rem] border border-white/10 bg-white/5 p-4 shadow-[0_0_100px_rgba(37,99,235,0.15)] animate-reveal" style={{ animationDelay: '0.4s' }}>
+            <div className="aspect-[16/10] rounded-[2rem] bg-[#0A0F1E] relative overflow-hidden border border-white/5">
+              {/* Canvas Mockup Content */}
+              <div className="absolute inset-0 opacity-20 bg-mesh" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="relative w-full h-full flex items-center justify-center gap-12 p-20">
+                  <div className="w-72 h-48 rounded-2xl glass-morphism-dark p-6 flex flex-col gap-4 border-blue-500/30 animate-float">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                        <Users className="w-5 h-5 text-blue-400" />
+                      </div>
+                      <div className="space-y-1.5">
+                        <div className="h-2 w-24 bg-white/40 rounded" />
+                        <div className="h-1.5 w-16 bg-white/20 rounded" />
+                      </div>
+                    </div>
+                    <div className="h-px w-full bg-white/10" />
+                    <div className="space-y-2">
+                      <div className="h-2 w-full bg-white/10 rounded" />
+                      <div className="h-2 w-4/5 bg-white/10 rounded" />
+                    </div>
+                  </div>
+                  
+                  <div className="w-12 h-px bg-gradient-to-r from-blue-500/50 to-transparent" />
+
+                  <div className="w-72 h-48 rounded-2xl glass-morphism-dark p-6 flex flex-col gap-4 border-white/10 animate-float" style={{ animationDelay: '1s' }}>
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-indigo-500/20 flex items-center justify-center">
+                        <Shield className="w-5 h-5 text-indigo-400" />
+                      </div>
+                      <div className="space-y-1.5">
+                        <div className="h-2 w-24 bg-white/40 rounded" />
+                        <div className="h-1.5 w-16 bg-white/20 rounded" />
+                      </div>
+                    </div>
+                    <div className="h-px w-full bg-white/10" />
+                    <div className="space-y-2">
+                      <div className="h-2 w-full bg-white/10 rounded" />
+                      <div className="h-2 w-3/4 bg-white/10 rounded" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -74,86 +117,99 @@ export default function LandingPage() {
       </section>
 
       {/* ── Features Grid ───────────────────────────────────────── */}
-      <section id="features" className="py-24 lg:py-32 bg-white">
+      <section id="features" className="py-32 lg:py-48 bg-white relative">
         <div className="max-w-7xl mx-auto px-8 lg:px-12">
-          <div className="max-w-3xl mb-16 lg:mb-24">
-            <p className="label-sm mb-4 text-blue-600">Platform Features</p>
-            <h2 className="headline-lg text-[#03071d]">
+          <div className="text-center max-w-3xl mx-auto mb-24">
+            <p className="label-sm mb-6">Unrivaled Power</p>
+            <h2 className="headline-lg text-[#03071d] text-balance">
               Everything you need to automate HR at scale.
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="card group">
-              <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
-                <Workflow className="w-6 h-6 text-blue-600 group-hover:text-white" />
+          <div className="grid md:grid-cols-3 gap-10">
+            {[
+              {
+                icon: Workflow,
+                title: 'Infinite Canvas',
+                desc: 'Drag, drop, and connect nodes to create complex HR logic. From simple approvals to multi-step onboarding.',
+                color: 'blue'
+              },
+              {
+                icon: Play,
+                title: 'Sandbox Simulator',
+                desc: 'Test your workflows instantly in a safe environment. See step-by-step execution logs before deploying live.',
+                color: 'emerald'
+              },
+              {
+                icon: Zap,
+                title: 'Automated Actions',
+                desc: 'Trigger emails, generate documents, and sync with your HRIS automatically when steps are completed.',
+                color: 'violet'
+              }
+            ].map((feature, idx) => (
+              <div key={idx} className="card-premium group">
+                <div className={`w-14 h-14 rounded-2xl bg-${feature.color}-500/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500`}>
+                  <feature.icon className={`w-7 h-7 text-${feature.color}-600`} />
+                </div>
+                <h3 className="title-lg mb-4 text-[#03071d]">{feature.title}</h3>
+                <p className="body-md text-[#515f74]">
+                  {feature.desc}
+                </p>
               </div>
-              <h3 className="title-lg mb-3 text-[#03071d]">Infinite Canvas</h3>
-              <p className="text-sm leading-relaxed text-[#515f74]">
-                Drag, drop, and connect nodes to create complex HR logic. From simple approvals to multi-step onboarding.
-              </p>
-            </div>
-
-            <div className="card group">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-6 group-hover:bg-emerald-500 group-hover:text-white transition-all">
-                <Play className="w-6 h-6 text-emerald-600 group-hover:text-white" />
-              </div>
-              <h3 className="title-lg mb-3 text-[#03071d]">Sandbox Simulator</h3>
-              <p className="text-sm leading-relaxed text-[#515f74]">
-                Test your workflows instantly in a safe environment. See step-by-step execution logs before deploying live.
-              </p>
-            </div>
-
-            <div className="card group">
-              <div className="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center mb-6 group-hover:bg-violet-500 group-hover:text-white transition-all">
-                <Zap className="w-6 h-6 text-violet-600 group-hover:text-white" />
-              </div>
-              <h3 className="title-lg mb-3 text-[#03071d]">Automated Actions</h3>
-              <p className="text-sm leading-relaxed text-[#515f74]">
-                Trigger emails, generate documents, and sync with your HRIS automatically when steps are completed.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ── Visual Proof Section ────────────────────────────────── */}
-      <section className="py-24 lg:py-32 bg-[#f7f9fb] border-y border-[#eceef0]">
-        <div className="max-w-7xl mx-auto px-8 lg:px-12 flex flex-col lg:flex-row items-center gap-16">
+      <section className="py-32 lg:py-48 bg-[#f8fafc] border-y border-slate-200 relative overflow-hidden">
+        {/* Background blobs */}
+        <div className="absolute top-0 right-0 w-[40%] h-[40%] bg-blue-500/5 blur-[100px]" />
+        <div className="absolute bottom-0 left-0 w-[40%] h-[40%] bg-indigo-500/5 blur-[100px]" />
+
+        <div className="max-w-7xl mx-auto px-8 lg:px-12 flex flex-col lg:flex-row items-center gap-24 relative z-10">
           <div className="lg:w-1/2">
-            <p className="label-sm mb-4 text-blue-600">Built for Scale</p>
-            <h2 className="headline-lg text-[#03071d] mb-6">
-              Precision design for high-performance teams.
+            <p className="label-sm mb-6">Engineered for Performance</p>
+            <h2 className="headline-lg text-[#03071d] mb-8 text-balance">
+              Built for the complexity of modern enterprises.
             </h2>
-            <p className="body-lg mb-8">
-              FlowHR is built for the complexity of modern enterprises. Handle thousands of 
-              concurrent workflows with built-in validation and error recovery.
+            <p className="body-lg mb-10 text-balance">
+              FlowHR isn't just a designer. It's a high-performance engine capable of handling thousands 
+              of concurrent workflows with built-in validation, error recovery, and enterprise security.
             </p>
-            <ul className="space-y-4">
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[
-                'Real-time graph validation',
-                'Topological sort execution',
-                'MSW-powered API mocking',
-                'Advanced type safety with TypeScript'
-              ].map(item => (
-                <li key={item} className="flex items-center gap-3 text-sm font-medium text-[#03071d]">
-                  <div className="w-5 h-5 rounded-full bg-blue-500/10 flex items-center justify-center">
-                    <ChevronRight className="w-3 h-3 text-blue-600" />
-                  </div>
-                  {item}
-                </li>
+                { icon: MousePointer2, label: 'Real-time Graph Validation' },
+                { icon: Cpu, label: 'Topological Sort Execution' },
+                { icon: Shield, label: 'MSW-powered API Mocking' },
+                { icon: Layers, label: 'Advanced Type Safety' }
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+                  <item.icon className="w-5 h-5 text-blue-600" />
+                  <span className="text-sm font-semibold text-[#03071d]">{item.label}</span>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
+
           <div className="lg:w-1/2 w-full">
-            <div className="relative aspect-square rounded-3xl bg-[#03071d] overflow-hidden shadow-2xl shadow-blue-900/20">
-              <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+            <div className="relative aspect-square rounded-[3rem] bg-[#03071d] overflow-hidden shadow-[0_40px_80px_rgba(3,7,29,0.15)] group">
+              <div className="absolute inset-0 opacity-20 bg-mesh group-hover:scale-110 transition-transform duration-700" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="w-24 h-24 rounded-2xl bg-white/5 border border-white/10 animate-pulse" />
-                  <div className="w-24 h-24 rounded-2xl bg-blue-500/20 border border-blue-500/30" />
-                  <div className="w-24 h-24 rounded-2xl bg-white/10 border border-white/10" style={{ animationDelay: '0.5s' }} />
-                  <div className="w-24 h-24 rounded-2xl bg-white/5 border border-white/10" />
+                <div className="grid grid-cols-2 gap-6 scale-125">
+                  <div className="w-24 h-24 rounded-3xl bg-white/5 border border-white/10 animate-float" />
+                  <div className="w-24 h-24 rounded-3xl bg-blue-500/20 border border-blue-500/30 animate-float" style={{ animationDelay: '0.5s' }} />
+                  <div className="w-24 h-24 rounded-3xl bg-white/10 border border-white/10 animate-float" style={{ animationDelay: '1s' }} />
+                  <div className="w-24 h-24 rounded-3xl bg-white/5 border border-white/10 animate-float" style={{ animationDelay: '1.5s' }} />
+                </div>
+              </div>
+              
+              {/* Floating Badge */}
+              <div className="absolute bottom-12 left-12 right-12 p-6 glass-morphism-dark rounded-2xl border border-white/10">
+                <div className="flex items-center gap-4">
+                  <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-sm font-bold tracking-wide uppercase">System Optimal • 99.9% Recall</span>
                 </div>
               </div>
             </div>
@@ -162,27 +218,27 @@ export default function LandingPage() {
       </section>
 
       {/* ── CTA Section ─────────────────────────────────────────── */}
-      <section className="py-24 lg:py-32">
-        <div className="max-w-7xl mx-auto px-8 lg:px-12">
-          <div className="rounded-[2.5rem] bg-[#03071d] p-12 lg:p-24 text-center relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/20 blur-[100px] -mr-48 -mt-48" />
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-violet-600/20 blur-[100px] -ml-48 -mb-48" />
+      <section className="py-32 lg:py-48 px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="rounded-[4rem] bg-[#03071d] p-16 lg:p-32 text-center relative overflow-hidden shadow-[0_60px_120px_rgba(3,7,29,0.3)]">
+            <div className="absolute top-0 right-0 w-[60%] h-[60%] bg-blue-600/30 blur-[120px] -mr-[20%] -mt-[20%]" />
+            <div className="absolute bottom-0 left-0 w-[60%] h-[60%] bg-indigo-600/30 blur-[120px] -ml-[20%] -mb-[20%]" />
             
-            <div className="relative z-10">
-              <h2 className="headline-lg text-white mb-8">
+            <div className="relative z-10 max-w-4xl mx-auto">
+              <h2 className="display-lg text-white mb-10 text-balance">
                 Ready to transform <br />
                 your HR operations?
               </h2>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/designer" className="btn-blue h-14 px-10 text-lg">
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <Link href="/designer" className="btn-blue h-18 px-14 text-xl">
                   Launch App Now
                 </Link>
-                <Link href="/docs" className="btn-secondary h-14 px-10 text-lg">
-                  View Docs
+                <Link href="/docs" className="btn-secondary h-18 px-14 text-xl bg-white/5 border-white/10 text-white hover:bg-white/10">
+                  Explore Docs
                 </Link>
               </div>
-              <p className="mt-8 text-sm text-white/40">
-                No credit card required. Setup takes 2 minutes.
+              <p className="mt-12 text-sm font-medium text-white/40 tracking-widest uppercase">
+                Free for teams up to 10 members • No setup required
               </p>
             </div>
           </div>

@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { Workflow, Menu, X } from 'lucide-react';
+import { Workflow, Menu, X, ArrowRight } from 'lucide-react';
 
 interface NavProps {
   dark?: boolean;
@@ -13,54 +13,46 @@ export function Navbar({ dark = false }: NavProps) {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-[100] h-16 flex items-center px-8 lg:px-12 transition-all duration-300"
-      style={{
-        background: scrolled
-          ? 'rgba(247,249,251,0.92)'
-          : dark ? 'transparent' : 'rgba(247,249,251,0.92)',
-        backdropFilter: scrolled || !dark ? 'blur(12px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(3,7,29,0.06)' : 'none',
-      }}
+      className={`fixed top-0 left-0 right-0 z-[100] h-20 flex items-center transition-all duration-500 ${
+        scrolled 
+          ? 'glass-morphism py-0 shadow-lg border-b border-slate-200/50' 
+          : 'py-2 bg-transparent'
+      }`}
     >
-      <div className="w-full max-w-7xl mx-auto flex items-center justify-between">
+      <div className="w-full max-w-7xl mx-auto px-8 lg:px-12 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 no-underline">
+        <Link href="/" className="flex items-center gap-3 group no-underline">
           <div
-            className="w-8 h-8 rounded-lg flex items-center justify-center"
-            style={{ background: 'linear-gradient(135deg, #03071d, #1a1f36)' }}
+            className="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform duration-300"
+            style={{ background: 'var(--gradient-primary)' }}
           >
-            <Workflow className="w-4 h-4 text-white" />
+            <Workflow className="w-5 h-5 text-white" />
           </div>
           <span
-            className="text-[17px] font-bold tracking-tight"
-            style={{
-              fontFamily: 'var(--font-display)',
-              color: dark && !scrolled ? 'white' : 'var(--primary)',
-            }}
+            className={`text-xl font-extrabold tracking-tighter transition-colors ${
+              dark && !scrolled ? 'text-white' : 'text-[#03071d]'
+            }`}
+            style={{ fontFamily: 'var(--font-display)' }}
           >
             FlowHR
           </span>
         </Link>
 
-        {/* Center links */}
-        <div className="hidden md:flex items-center gap-8">
-          {['Features', 'Pricing', 'Docs', 'Blog'].map(item => (
+        {/* Desktop links */}
+        <div className="hidden md:flex items-center gap-10">
+          {['Features', 'Solutions', 'Pricing', 'Docs'].map(item => (
             <Link
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="text-sm font-medium transition-colors no-underline"
-              style={{
-                fontFamily: 'var(--font-body)',
-                color: dark && !scrolled ? 'rgba(255,255,255,0.7)' : 'var(--on-surface-variant)',
-              }}
-              onMouseEnter={e => (e.currentTarget.style.color = dark && !scrolled ? 'white' : 'var(--primary)')}
-              onMouseLeave={e => (e.currentTarget.style.color = dark && !scrolled ? 'rgba(255,255,255,0.7)' : 'var(--on-surface-variant)')}
+              className={`text-[15px] font-semibold transition-all hover:translate-y-[-1px] no-underline ${
+                dark && !scrolled ? 'text-white/70 hover:text-white' : 'text-slate-600 hover:text-blue-600'
+              }`}
             >
               {item}
             </Link>
@@ -68,35 +60,44 @@ export function Navbar({ dark = false }: NavProps) {
         </div>
 
         {/* Right CTAs */}
-        <div className="hidden md:flex items-center gap-3">
-          <Link href="/designer" className="btn-primary" style={{ padding: '8px 18px', fontSize: '14px' }}>
-            Open App →
+        <div className="hidden md:flex items-center gap-6">
+          <Link 
+            href="/designer" 
+            className={`btn-primary group !py-2.5 !px-6 !text-sm !rounded-full ${
+              dark && !scrolled ? 'bg-white !text-[#03071d] hover:bg-white/90' : ''
+            }`}
+          >
+            Open App
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden p-2"
+          className="md:hidden w-10 h-10 rounded-xl flex items-center justify-center bg-slate-100 hover:bg-slate-200 transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
-          style={{ color: dark && !scrolled ? 'white' : 'var(--primary)' }}
         >
-          {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          {mobileOpen ? <X className="w-5 h-5 text-slate-900" /> : <Menu className="w-5 h-5 text-slate-900" />}
         </button>
       </div>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div
-          className="md:hidden absolute top-16 left-0 right-0 border-b p-6 flex flex-col gap-4"
-          style={{ background: 'var(--surface-container-lowest)', borderColor: 'var(--surface-container)' }}
-        >
-          {['Features', 'Pricing', 'Docs', 'Blog'].map(item => (
-            <Link key={item} href={`#${item.toLowerCase()}`} className="text-sm font-medium no-underline" style={{ color: 'var(--on-surface)' }}>
+        <div className="md:hidden absolute top-[80px] left-4 right-4 rounded-3xl glass-morphism border border-slate-200/50 p-8 flex flex-col gap-6 shadow-2xl animate-reveal">
+          {['Features', 'Solutions', 'Pricing', 'Docs'].map(item => (
+            <Link 
+              key={item} 
+              href={`#${item.toLowerCase()}`} 
+              className="text-lg font-bold text-slate-900 no-underline"
+              onClick={() => setMobileOpen(false)}
+            >
               {item}
             </Link>
           ))}
-          <hr style={{ borderColor: 'var(--surface-container)' }} />
-          <Link href="/designer" className="btn-primary w-full justify-center" style={{ fontSize: '14px' }}>Open App →</Link>
+          <div className="h-px w-full bg-slate-200" />
+          <Link href="/designer" className="btn-primary w-full justify-center !rounded-2xl py-4">
+            Get Started
+          </Link>
         </div>
       )}
     </nav>
