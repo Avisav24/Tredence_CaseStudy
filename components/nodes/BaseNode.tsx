@@ -36,29 +36,29 @@ export function BaseNode({
   return (
     <div
       className={clsx(
-        'relative rounded-xl border transition-all duration-200 min-w-[180px] max-w-[220px]',
-        'backdrop-blur-sm shadow-xl',
+        'relative rounded-2xl border transition-all duration-300 min-w-[240px] max-w-[280px]',
+        'backdrop-blur-md shadow-2xl',
         selected
-          ? 'border-violet-500/80 shadow-violet-500/20'
+          ? 'border-violet-500 shadow-violet-500/20'
           : hasErrors
           ? 'border-rose-500/50 shadow-rose-500/10'
-          : 'border-white/10 hover:border-white/20',
+          : 'border-white/[0.08] hover:border-white/20',
       )}
       style={{
         background: selected
-          ? `linear-gradient(135deg, ${bg}, rgba(124,58,237,0.08))`
-          : `linear-gradient(135deg, ${bg}, rgba(10,15,30,0.9))`,
+          ? `linear-gradient(135deg, ${bg}, rgba(124,58,237,0.12))`
+          : `linear-gradient(135deg, ${bg}, rgba(10,15,30,0.95))`,
       }}
     >
       {/* Top accent bar */}
       <div
-        className="absolute top-0 left-4 right-4 h-0.5 rounded-full"
-        style={{ background: color, opacity: 0.7 }}
+        className="absolute top-0 left-6 right-6 h-1 rounded-full"
+        style={{ background: color, opacity: 0.8 }}
       />
 
       {/* Status indicator */}
       {status !== 'idle' && (
-        <div className="absolute -top-1 -right-1">
+        <div className="absolute -top-2 -right-2 p-1.5 rounded-full bg-[#030712] border border-white/10">
           {status === 'running' && (
             <Loader2 className="w-4 h-4 animate-spin text-violet-400" />
           )}
@@ -76,26 +76,26 @@ export function BaseNode({
         <Handle
           type="target"
           position={Position.Top}
-          className="!w-3 !h-3 !border-2 !rounded-full"
-          style={{ borderColor: color, backgroundColor: '#0A0F1E', top: -6 }}
+          className="!w-4 !h-4 !border-[3px] !rounded-full transition-all hover:scale-125"
+          style={{ borderColor: color, backgroundColor: '#030712', top: -8 }}
         />
       )}
 
       {/* Content */}
-      <div className="px-4 py-3 flex items-center gap-3">
+      <div className="px-7 py-6 flex items-center gap-5">
         {/* Icon pill */}
         <div
-          className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center"
-          style={{ backgroundColor: `${color}22`, color }}
+          className="flex-shrink-0 w-12 h-12 rounded-[1rem] flex items-center justify-center border border-white/5"
+          style={{ backgroundColor: `${color}15`, color }}
         >
-          {icon}
+          {React.cloneElement(icon as React.ReactElement, { className: 'w-5 h-5' })}
         </div>
         <div className="flex-1 min-w-0">
-          <p className="text-[11px] font-semibold uppercase tracking-wider" style={{ color }}>
+          <p className="text-[11px] font-black uppercase tracking-[0.2em] mb-1.5 opacity-60" style={{ color }}>
             {label}
           </p>
           {subtitle && (
-            <p className="text-xs text-[#D1D5DB] font-medium truncate mt-0.5">
+            <p className="text-[15px] text-white font-black tracking-tight truncate">
               {subtitle}
             </p>
           )}

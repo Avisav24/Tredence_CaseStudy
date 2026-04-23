@@ -68,19 +68,19 @@ export function Sidebar() {
               key={template.type}
               draggable
               onDragStart={e => onDragStart(e, template.type)}
-              className="group flex items-center gap-5 rounded-3xl border border-white/[0.03] bg-white/[0.02] p-5 cursor-grab active:cursor-grabbing hover:border-white/10 hover:bg-white/[0.05] transition-all duration-500 select-none relative overflow-hidden"
+              className="group flex items-center gap-6 rounded-[2rem] border border-white/[0.03] bg-white/[0.02] p-8 cursor-grab active:cursor-grabbing hover:border-white/10 hover:bg-white/[0.05] transition-all duration-500 select-none relative overflow-hidden"
             >
               <div
-                className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6"
+                className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6"
                 style={{ backgroundColor: `${color}10`, color, border: `1px solid ${color}20` }}
               >
                 {template.icon}
               </div>
               <div className="min-w-0">
-                <p className="text-[15px] font-black text-white leading-tight tracking-tight">
+                <p className="text-[16px] font-black text-white leading-tight tracking-tight">
                   {template.label}
                 </p>
-                <p className="text-[11px] text-white/30 truncate mt-1.5 font-medium">
+                <p className="text-[12px] text-white/30 truncate mt-2 font-medium">
                   {template.description}
                 </p>
               </div>

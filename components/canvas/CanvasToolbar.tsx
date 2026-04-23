@@ -43,36 +43,36 @@ export function CanvasToolbar() {
   };
 
   return (
-    <div className="flex items-center gap-1 px-1">
+    <div className="flex items-center gap-3 px-3 py-1.5">
       {/* Undo / Redo */}
       <ToolbarButton onClick={undo} disabled={!canUndo} title="Undo (Ctrl+Z)">
-        <Undo2 className="w-4 h-4" />
+        <Undo2 className="w-5 h-5" />
       </ToolbarButton>
       <ToolbarButton onClick={redo} disabled={!canRedo} title="Redo (Ctrl+Y)">
-        <Redo2 className="w-4 h-4" />
+        <Redo2 className="w-5 h-5" />
       </ToolbarButton>
 
       <Divider />
 
       {/* Zoom */}
       <ToolbarButton onClick={() => zoomOut()} title="Zoom Out">
-        <ZoomOut className="w-4 h-4" />
+        <ZoomOut className="w-5 h-5" />
       </ToolbarButton>
       <ToolbarButton onClick={() => zoomIn()} title="Zoom In">
-        <ZoomIn className="w-4 h-4" />
+        <ZoomIn className="w-5 h-5" />
       </ToolbarButton>
       <ToolbarButton onClick={() => fitView({ padding: 0.15, duration: 400 })} title="Fit View">
-        <Maximize2 className="w-4 h-4" />
+        <Maximize2 className="w-5 h-5" />
       </ToolbarButton>
 
       <Divider />
 
       {/* Export / Import */}
       <ToolbarButton onClick={handleExport} title="Export JSON">
-        <Download className="w-4 h-4" />
+        <Download className="w-5 h-5" />
       </ToolbarButton>
       <ToolbarButton onClick={() => fileInputRef.current?.click()} title="Import JSON">
-        <Upload className="w-4 h-4" />
+        <Upload className="w-5 h-5" />
       </ToolbarButton>
       <input
         ref={fileInputRef}
@@ -86,14 +86,14 @@ export function CanvasToolbar() {
 
       {/* Clear */}
       <ToolbarButton onClick={clearCanvas} title="Clear Canvas" variant="danger">
-        <Trash2 className="w-4 h-4" />
+        <Trash2 className="w-5 h-5" />
       </ToolbarButton>
     </div>
   );
 }
 
 function Divider() {
-  return <div className="w-px h-5 bg-white/10 mx-1" />;
+  return <div className="w-px h-6 bg-white/10 mx-3" />;
 }
 
 interface ToolbarButtonProps {
@@ -111,10 +111,10 @@ function ToolbarButton({ onClick, title, children, disabled, variant = 'default'
       title={title}
       disabled={disabled}
       className={clsx(
-        'p-1.5 rounded-lg transition-all disabled:opacity-30 disabled:cursor-not-allowed',
+        'p-4 rounded-2xl transition-all duration-300 disabled:opacity-20 disabled:cursor-not-allowed active:scale-90',
         variant === 'danger'
-          ? 'text-white/40 hover:bg-rose-500/10 hover:text-rose-400'
-          : 'text-white/40 hover:bg-white/5 hover:text-white'
+          ? 'text-white/30 hover:bg-rose-500/10 hover:text-rose-400'
+          : 'text-white/30 hover:bg-white/10 hover:text-white'
       )}
     >
       {children}
