@@ -88,7 +88,9 @@ export function BaseNode({
           className="flex-shrink-0 w-12 h-12 rounded-[1rem] flex items-center justify-center border border-white/5"
           style={{ backgroundColor: `${color}15`, color }}
         >
-          {React.cloneElement(icon as React.ReactElement, { className: 'w-5 h-5' })}
+          <div className="w-5 h-5">
+            {icon}
+          </div>
         </div>
         <div className="flex-1 min-w-0">
           <p className="text-[11px] font-black uppercase tracking-[0.2em] mb-1.5 opacity-60" style={{ color }}>
