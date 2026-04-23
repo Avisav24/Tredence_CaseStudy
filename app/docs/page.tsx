@@ -1,90 +1,93 @@
 'use client';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
-import { BookOpen, Shield, Zap, Search, ArrowRight, FileText, Code, Users, Sparkles } from 'lucide-react';
+import { BookOpen, Zap, Search, ArrowRight, Code, Users, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
 export default function DocsPage() {
   const categories = [
     {
       title: 'Getting Started',
-      icon: <Zap className="w-5 h-5 text-blue-500" />,
+      icon: <Zap className="w-6 h-6 text-blue-500" />,
       links: ['Introduction', 'Core Concepts', 'Quick Start Guide', 'First Workflow'],
       color: 'blue'
     },
     {
       title: 'Designer Canvas',
-      icon: <BookOpen className="w-5 h-5 text-emerald-500" />,
+      icon: <BookOpen className="w-6 h-6 text-emerald-500" />,
       links: ['Nodes & Handles', 'Connecting Steps', 'Validation Rules', 'Keyboard Shortcuts'],
       color: 'emerald'
     },
     {
       title: 'Advanced Logic',
-      icon: <Code className="w-5 h-5 text-amber-500" />,
+      icon: <Code className="w-6 h-6 text-amber-500" />,
       links: ['Simulation Sandbox', 'Dynamic Parameters', 'API Integration', 'Variables'],
       color: 'amber'
     },
     {
       title: 'Management',
-      icon: <Users className="w-5 h-5 text-violet-500" />,
+      icon: <Users className="w-6 h-6 text-violet-500" />,
       links: ['User Roles', 'Audit Logs', 'Export/Import', 'Version Control'],
       color: 'violet'
     }
   ];
 
   return (
-    <div className="min-h-screen bg-white selection:bg-blue-600/10">
+    <div className="min-h-screen bg-[#030712] selection:bg-blue-600/20">
       <Navbar dark />
       
-      {/* --- Hero --- */}
-      <section className="pt-48 pb-32 bg-[#03071d] relative overflow-hidden">
+      {/* --- Cinematic Hero --- */}
+      <section className="pt-64 pb-48 relative overflow-hidden">
         {/* Background elements */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-0 w-[50%] h-[100%] bg-blue-600/10 blur-[120px]" />
-          <div className="absolute bottom-0 left-0 w-[30%] h-[50%] bg-indigo-600/10 blur-[100px]" />
-          <div className="absolute inset-0 opacity-[0.05]" 
-               style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+          <div className="absolute top-0 right-0 w-[60%] h-[100%] bg-blue-600/10 blur-[150px] opacity-60" />
+          <div className="absolute bottom-0 left-0 w-[40%] h-[60%] bg-indigo-600/10 blur-[120px] opacity-60" />
+          <div className="absolute inset-0 opacity-[0.03]" 
+               style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '60px 60px' }} />
         </div>
 
-        <div className="max-w-7xl mx-auto px-8 lg:px-12 relative z-10 text-center flex flex-col items-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-10 animate-reveal shadow-2xl backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-8 lg:px-16 relative z-10 text-center flex flex-col items-center">
+          <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-white/5 border border-white/10 mb-12 animate-reveal shadow-2xl backdrop-blur-xl">
             <Sparkles className="w-4 h-4 text-blue-400" />
-            <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-white/80">Documentation</span>
+            <span className="text-[12px] font-black tracking-[0.3em] uppercase text-white/90">Documentation & Resources</span>
           </div>
 
-          <h1 className="display-lg mb-10 text-white animate-reveal text-balance">
-            Architecting the <br /><span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Future of HR.</span>
+          <h1 className="display-xl mb-12 text-white animate-reveal text-balance">
+            Orchestrate <br /><span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-violet-400 bg-clip-text text-transparent">Complex Workflows.</span>
           </h1>
           
-          <p className="body-lg max-w-2xl text-white/50 mb-16 animate-reveal text-balance" style={{ animationDelay: '0.1s' }}>
-            Comprehensive guides, API references, and best practices to help you build high-performance HR orchestrations.
+          <p className="body-lg max-w-3xl text-white/40 mb-24 animate-reveal text-balance leading-relaxed" style={{ animationDelay: '0.1s' }}>
+            The definitive guide to building enterprise-grade HR automations. Explore our comprehensive libraries, node definitions, and architectural blueprints.
           </p>
 
-          <div className="relative w-full max-w-2xl animate-reveal group" style={{ animationDelay: '0.2s' }}>
-            <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-white/30 group-focus-within:text-blue-500 transition-colors" />
-            <input 
-              type="text" 
-              placeholder="Search documentation, nodes, or API endpoints..." 
-              className="w-full h-18 bg-white/5 border border-white/10 rounded-[2rem] pl-16 pr-8 text-white text-lg outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all shadow-2xl backdrop-blur-md"
-            />
+          <div className="relative w-full max-w-3xl animate-reveal group" style={{ animationDelay: '0.2s' }}>
+            <div className="absolute inset-0 bg-blue-600/20 blur-[40px] opacity-0 group-focus-within:opacity-100 transition-opacity duration-700" />
+            <div className="relative">
+              <Search className="absolute left-8 top-1/2 -translate-y-1/2 w-6 h-6 text-white/20 group-focus-within:text-blue-400 transition-colors duration-500" />
+              <input 
+                type="text" 
+                placeholder="Search documentation, nodes, or API endpoints..." 
+                className="w-full h-24 bg-white/[0.03] border border-white/10 rounded-[3rem] pl-20 pr-12 text-white text-xl outline-none focus:border-blue-500/40 focus:bg-white/[0.05] transition-all duration-500 shadow-3xl backdrop-blur-2xl placeholder:text-white/20"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* --- Content Grid --- */}
-      <section className="py-32 max-w-7xl mx-auto px-8 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-32">
+      {/* --- Knowledge Hub Grid --- */}
+      <section className="py-48 max-w-7xl mx-auto px-8 lg:px-16 border-t border-white/[0.03]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-48">
           {categories.map((cat, i) => (
-            <div key={i} className="animate-reveal" style={{ animationDelay: `${i * 0.1}s` }}>
-              <div className={`w-14 h-14 rounded-2xl bg-${cat.color}-500/10 flex items-center justify-center mb-8 shadow-sm`}>
+            <div key={i} className="animate-reveal group" style={{ animationDelay: `${i * 0.1}s` }}>
+              <div className={`w-16 h-16 rounded-[2rem] bg-white/[0.02] border border-white/5 flex items-center justify-center mb-10 group-hover:scale-110 group-hover:border-white/20 transition-all duration-500 shadow-xl`}>
                 {cat.icon}
               </div>
-              <h3 className="text-xl font-bold text-[#03071d] mb-6 tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>{cat.title}</h3>
-              <ul className="space-y-4">
+              <h3 className="text-2xl font-black text-white mb-10 tracking-tight">{cat.title}</h3>
+              <ul className="space-y-6">
                 {cat.links.map(link => (
                   <li key={link}>
-                    <Link href="#" className="text-[15px] font-medium text-slate-500 hover:text-blue-600 transition-colors flex items-center gap-3 group">
-                      <div className="w-1.5 h-1.5 rounded-full bg-slate-200 group-hover:bg-blue-600 transition-colors" />
+                    <Link href="#" className="text-[16px] font-bold text-white/30 hover:text-blue-400 transition-all duration-300 flex items-center gap-4 group/item">
+                      <div className="w-2 h-2 rounded-full bg-white/10 group-hover/item:bg-blue-400 group-hover/item:scale-125 transition-all" />
                       {link}
                     </Link>
                   </li>
@@ -94,26 +97,35 @@ export default function DocsPage() {
           ))}
         </div>
 
-        {/* --- Featured Guides --- */}
-        <div className="border-t border-slate-100 pt-32">
-          <div className="flex items-center justify-between mb-16">
-            <h2 className="headline-md text-[#03071d]">Featured Guides</h2>
-            <Link href="#" className="text-sm font-bold text-blue-600 uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all">
-              View All <ArrowRight className="w-4 h-4" />
+        {/* --- Featured Guides - Spatial Overhaul --- */}
+        <div className="border-t border-white/[0.05] pt-48">
+          <div className="flex items-center justify-between mb-24">
+            <div>
+              <p className="text-blue-500 text-[12px] font-black tracking-[0.4em] uppercase mb-4">Case Studies</p>
+              <h2 className="display-lg text-white">Featured Guides</h2>
+            </div>
+            <Link href="#" className="group flex items-center gap-4 px-8 py-4 rounded-2xl bg-white/5 border border-white/10 text-sm font-black text-white uppercase tracking-widest hover:bg-white/10 transition-all">
+              View All <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             {[
-              { title: 'Best Practices for Onboarding', desc: 'How to structure a seamless 30-day employee journey with automated checkpoints.' },
-              { title: 'API Integration Masterclass', desc: 'Step-by-step guide to connecting FlowHR to your existing enterprise HRIS systems.' },
-              { title: 'Optimizing Approval Chains', desc: 'Advanced techniques for reducing bottlenecks in multi-layer global approval steps.' }
+              { title: 'Best Practices for Onboarding', desc: 'How to structure a seamless 30-day employee journey with automated checkpoints and multi-layer validation.', category: 'OPERATIONS' },
+              { title: 'API Integration Masterclass', desc: 'Step-by-step guide to connecting FlowHR to your existing enterprise HRIS systems using dynamic variables.', category: 'ENGINEERING' },
+              { title: 'Optimizing Approval Chains', desc: 'Advanced techniques for reducing bottlenecks in multi-layer global approval steps with conditional logic.', category: 'STRATEGY' }
             ].map((guide, i) => (
-              <Link key={i} href="#" className="card-premium group !p-10">
-                <h4 className="text-xl font-bold text-[#03071d] mb-4 group-hover:text-blue-600 transition-colors tracking-tight leading-snug">{guide.title}</h4>
-                <p className="body-md text-slate-500 mb-10 line-clamp-3">{guide.desc}</p>
-                <div className="flex items-center gap-2 text-xs font-black text-blue-600 uppercase tracking-[0.2em]">
-                  Read Full Guide <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5" />
+              <Link key={i} href="#" className="card-premium group relative !p-16 overflow-hidden">
+                <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                   <ArrowRight className="w-12 h-12 -rotate-45" />
+                </div>
+                
+                <p className="text-[10px] font-black text-blue-500 tracking-[0.3em] uppercase mb-8">{guide.category}</p>
+                <h4 className="text-3xl font-black text-white mb-8 group-hover:text-blue-400 transition-colors tracking-tight leading-tight">{guide.title}</h4>
+                <p className="text-lg text-white/40 mb-12 line-clamp-3 leading-relaxed font-medium">{guide.desc}</p>
+                
+                <div className="flex items-center gap-3 text-xs font-black text-blue-400 uppercase tracking-[0.2em] pt-8 border-t border-white/5">
+                  Read Full Guide <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-3" />
                 </div>
               </Link>
             ))}

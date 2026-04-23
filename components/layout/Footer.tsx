@@ -67,28 +67,28 @@ export function Footer() {
 
   return (
     <footer className="bg-[#03071d] text-white/40 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-8 lg:px-12 py-24">
+      <div className="max-w-7xl mx-auto px-8 lg:px-16 py-48">
         {/* Top row */}
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+        <div className="flex flex-col lg:flex-row gap-24 lg:gap-32">
           {/* Brand */}
-          <div className="lg:w-80 flex-shrink-0">
-            <Link href="/" className="flex items-center gap-3 mb-8 no-underline group">
-              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Workflow className="w-5 h-5 text-white" />
+          <div className="lg:w-96 flex-shrink-0">
+            <Link href="/" className="flex items-center gap-5 mb-12 no-underline group">
+              <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                <Workflow className="w-6 h-6 text-white" />
               </div>
-              <span className="text-white font-bold text-xl tracking-tighter" style={{ fontFamily: 'var(--font-display)' }}>
+              <span className="text-white font-black text-2xl tracking-tighter" style={{ fontFamily: 'var(--font-display)' }}>
                 FlowHR
               </span>
             </Link>
-            <p className="text-[15px] leading-relaxed mb-8 text-white/50">
+            <p className="text-[17px] leading-relaxed mb-12 text-white/30 font-medium">
               The modern standard for visual HR automation. Empowers teams to build, simulate, and automate complex human resource workflows with zero code.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-6">
               {[Github, Twitter, Linkedin].map((Icon, i) => (
                 <a
                   key={i}
                   href="#"
-                  className="w-10 h-10 rounded-xl flex items-center justify-center bg-white/5 border border-white/10 text-white/40 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all shadow-sm"
+                  className="w-12 h-12 rounded-2xl flex items-center justify-center bg-white/5 border border-white/10 text-white/30 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all shadow-premium"
                 >
                   <Icon className="w-5 h-5" />
                 </a>
@@ -97,22 +97,22 @@ export function Footer() {
           </div>
 
           {/* Link columns */}
-          <div className="flex-1 grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+          <div className="flex-1 grid grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-12">
             {cols.map(col => (
               <div key={col.title}>
-                <p className="text-[11px] font-black uppercase tracking-[0.2em] mb-6 text-white/20">
+                <p className="text-[12px] font-black uppercase tracking-[0.3em] mb-10 text-white/20">
                   {col.title}
                 </p>
-                <ul className="flex flex-col gap-4">
+                <ul className="flex flex-col gap-6">
                   {col.links.map(link => (
                     <li key={link}>
-                      <a
+                      <Link
                         href="#"
-                        className="text-sm no-underline text-white/50 hover:text-white transition-colors flex items-center group"
+                        className="text-[15px] no-underline text-white/40 hover:text-blue-400 transition-all flex items-center group/item font-bold"
                       >
                         {link}
-                        <ArrowRight className="w-3 h-3 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                      </a>
+                        <ArrowRight className="w-4 h-4 ml-3 opacity-0 -translate-x-3 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" />
+                      </Link>
                     </li>
                   ))}
                 </ul>

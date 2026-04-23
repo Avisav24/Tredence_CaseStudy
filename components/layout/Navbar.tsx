@@ -48,26 +48,30 @@ export function Navbar({ dark = false }: NavProps) {
           </Link>
 
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-10">
-            {['Features', 'Solutions', 'Pricing', 'Docs'].map(item => (
+          <div className="hidden md:flex items-center gap-16">
+            {[
+              { name: 'Designer', href: '/' },
+              { name: 'Templates', href: '/templates' },
+              { name: 'Docs', href: '/docs' }
+            ].map(item => (
               <Link
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-[14px] font-bold text-white/60 hover:text-white transition-all hover:translate-y-[-1px] no-underline tracking-wide"
+                key={item.name}
+                href={item.href}
+                className="text-[14px] font-black text-white/40 hover:text-white transition-all hover:translate-y-[-2px] no-underline tracking-[0.1em] uppercase"
               >
-                {item}
+                {item.name}
               </Link>
             ))}
           </div>
 
           {/* Right CTAs */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-8">
             <Link 
-              href="/designer" 
-              className="btn-primary !py-3.5 !px-8 !text-[13px] !rounded-full shadow-[0_10px_30px_rgba(37,99,235,0.3)] active:scale-95"
+              href="/" 
+              className="btn-primary !py-4 !px-10 !text-[14px] !rounded-2xl shadow-[0_20px_40px_rgba(37,99,235,0.2)] active:scale-95"
             >
-              Open Designer
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform ml-1" />
+              Start Designing
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform ml-2" />
             </Link>
           </div>
 
