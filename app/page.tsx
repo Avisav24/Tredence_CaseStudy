@@ -119,16 +119,16 @@ export default function LandingPage() {
       </section>
 
       {/* ── Features Grid ───────────────────────────────────────── */}
-      <section id="features" className="py-32 lg:py-48 bg-white relative">
+      <section id="features" className="py-40 lg:py-64 bg-white relative">
         <div className="max-w-7xl mx-auto px-8 lg:px-12">
-          <div className="text-center max-w-3xl mx-auto mb-24">
-            <p className="label-sm mb-6">Unrivaled Power</p>
-            <h2 className="headline-lg text-[#03071d] text-balance">
-              Everything you need to automate HR at scale.
+          <div className="text-center max-w-4xl mx-auto mb-32">
+            <p className="label-sm mb-8 tracking-[0.3em]">Unrivaled Power</p>
+            <h2 className="headline-lg text-[#030712] text-balance leading-[1.1]">
+              Everything you need to <br /> automate HR at scale.
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-3 gap-12">
             {[
               {
                 icon: Workflow,
@@ -149,12 +149,12 @@ export default function LandingPage() {
                 color: 'violet'
               }
             ].map((feature, idx) => (
-              <div key={idx} className="card-premium group">
-                <div className={`w-14 h-14 rounded-2xl bg-${feature.color}-500/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500`}>
-                  <feature.icon className={`w-7 h-7 text-${feature.color}-600`} />
+              <div key={idx} className="card-premium group !p-12 flex flex-col items-center text-center">
+                <div className={`w-20 h-20 rounded-[2rem] bg-${feature.color}-500/5 flex items-center justify-center mb-10 group-hover:scale-110 group-hover:rotate-6 transition-all duration-700 border border-${feature.color}-500/10`}>
+                  <feature.icon className={`w-8 h-8 text-${feature.color}-600`} />
                 </div>
-                <h3 className="title-lg mb-4 text-[#03071d]">{feature.title}</h3>
-                <p className="body-md text-[#515f74]">
+                <h3 className="title-md mb-6 text-[#030712] font-black">{feature.title}</h3>
+                <p className="body-md text-slate-500 leading-relaxed max-w-[280px]">
                   {feature.desc}
                 </p>
               </div>
@@ -164,55 +164,54 @@ export default function LandingPage() {
       </section>
 
       {/* ── Visual Proof Section ────────────────────────────────── */}
-      <section className="py-32 lg:py-48 bg-[#f8fafc] border-y border-slate-200 relative overflow-hidden">
+      <section className="py-40 lg:py-64 bg-[#fcfdfe] border-y border-slate-100 relative overflow-hidden">
         {/* Background blobs */}
-        <div className="absolute top-0 right-0 w-[40%] h-[40%] bg-blue-500/5 blur-[100px]" />
-        <div className="absolute bottom-0 left-0 w-[40%] h-[40%] bg-indigo-500/5 blur-[100px]" />
+        <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-blue-500/[0.03] blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-[50%] h-[50%] bg-violet-500/[0.03] blur-[120px]" />
 
-        <div className="max-w-7xl mx-auto px-8 lg:px-12 flex flex-col lg:flex-row items-center gap-24 relative z-10">
-          <div className="lg:w-1/2">
-            <p className="label-sm mb-6">Engineered for Performance</p>
-            <h2 className="headline-lg text-[#03071d] mb-8 text-balance">
-              Built for the complexity of modern enterprises.
+        <div className="max-w-7xl mx-auto px-8 lg:px-12 flex flex-col items-center text-center relative z-10">
+          <div className="max-w-4xl mx-auto mb-24">
+            <p className="label-sm mb-8 tracking-[0.3em]">Engineered for Performance</p>
+            <h2 className="headline-lg text-[#030712] mb-10 text-balance leading-[1.1]">
+              Built for the complexity of <br /> modern enterprise teams.
             </h2>
-            <p className="body-lg mb-10 text-balance">
+            <p className="body-lg text-slate-500 max-w-3xl mx-auto text-balance font-medium leading-relaxed">
               FlowHR isn't just a designer. It's a high-performance engine capable of handling thousands 
-              of concurrent workflows with built-in validation, error recovery, and enterprise security.
+              of concurrent workflows with built-in validation and enterprise security.
             </p>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {[
-                { icon: MousePointer2, label: 'Real-time Graph Validation' },
-                { icon: Cpu, label: 'Topological Sort Execution' },
-                { icon: Shield, label: 'MSW-powered API Mocking' },
-                { icon: Layers, label: 'Advanced Type Safety' }
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
-                  <item.icon className="w-5 h-5 text-blue-600" />
-                  <span className="text-sm font-semibold text-[#03071d]">{item.label}</span>
+          </div>
+          
+          <div className="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-32">
+            {[
+              { icon: MousePointer2, label: 'Real-time Validation' },
+              { icon: Cpu, label: 'Topological Engine' },
+              { icon: Shield, label: 'Secure Sandbox' },
+              { icon: Layers, label: 'Type Safety' }
+            ].map((item, i) => (
+              <div key={i} className="flex flex-col items-center gap-5 p-8 rounded-[2rem] bg-white border border-slate-100 shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-500">
+                <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center">
+                  <item.icon className="w-6 h-6 text-blue-600" />
                 </div>
-              ))}
-            </div>
+                <span className="text-sm font-bold text-[#030712] tracking-tight">{item.label}</span>
+              </div>
+            ))}
           </div>
 
-          <div className="lg:w-1/2 w-full">
-            <div className="relative aspect-square rounded-[3rem] bg-[#03071d] overflow-hidden shadow-[0_40px_80px_rgba(3,7,29,0.15)] group">
-              <div className="absolute inset-0 opacity-20 bg-mesh group-hover:scale-110 transition-transform duration-700" />
+          <div className="w-full max-w-6xl">
+            <div className="relative aspect-[21/9] rounded-[3rem] bg-[#030712] overflow-hidden shadow-[0_60px_120px_rgba(0,0,0,0.3)] group border border-white/5">
+              <div className="absolute inset-0 opacity-20 bg-mesh group-hover:scale-110 transition-transform duration-1000" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="grid grid-cols-2 gap-6 scale-125">
-                  <div className="w-24 h-24 rounded-3xl bg-white/5 border border-white/10 animate-float" />
-                  <div className="w-24 h-24 rounded-3xl bg-blue-500/20 border border-blue-500/30 animate-float" style={{ animationDelay: '0.5s' }} />
-                  <div className="w-24 h-24 rounded-3xl bg-white/10 border border-white/10 animate-float" style={{ animationDelay: '1s' }} />
-                  <div className="w-24 h-24 rounded-3xl bg-white/5 border border-white/10 animate-float" style={{ animationDelay: '1.5s' }} />
+                <div className="flex gap-12 scale-150">
+                  <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 animate-float" />
+                  <div className="w-20 h-20 rounded-2xl bg-blue-500/20 border border-blue-500/30 animate-float" style={{ animationDelay: '0.5s' }} />
+                  <div className="w-20 h-20 rounded-2xl bg-white/10 border border-white/10 animate-float" style={{ animationDelay: '1s' }} />
                 </div>
               </div>
               
               {/* Floating Badge */}
-              <div className="absolute bottom-12 left-12 right-12 p-6 glass-morphism-dark rounded-2xl border border-white/10">
-                <div className="flex items-center gap-4">
-                  <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-sm font-bold tracking-wide uppercase">System Optimal • 99.9% Recall</span>
-                </div>
+              <div className="absolute bottom-12 left-1/2 -translate-x-1/2 px-10 py-5 glass-morphism-dark rounded-full border border-white/10 flex items-center gap-4">
+                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_#10b981]" />
+                <span className="text-[12px] font-black tracking-[0.2em] uppercase">99.9% Recall • System Optimal</span>
               </div>
             </div>
           </div>
@@ -220,27 +219,27 @@ export default function LandingPage() {
       </section>
 
       {/* ── CTA Section ─────────────────────────────────────────── */}
-      <section className="py-32 lg:py-48 px-8">
+      <section className="py-40 lg:py-64 px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="rounded-[4rem] bg-[#03071d] p-16 lg:p-32 text-center relative overflow-hidden shadow-[0_60px_120px_rgba(3,7,29,0.3)]">
-            <div className="absolute top-0 right-0 w-[60%] h-[60%] bg-blue-600/30 blur-[120px] -mr-[20%] -mt-[20%]" />
-            <div className="absolute bottom-0 left-0 w-[60%] h-[60%] bg-indigo-600/30 blur-[120px] -ml-[20%] -mb-[20%]" />
+          <div className="rounded-[4.5rem] bg-[#030712] p-20 lg:p-40 text-center relative overflow-hidden shadow-[0_80px_160px_rgba(0,0,0,0.5)] border border-white/5">
+            <div className="absolute top-0 right-0 w-[70%] h-[70%] bg-blue-600/20 blur-[140px] -mr-[30%] -mt-[30%]" />
+            <div className="absolute bottom-0 left-0 w-[70%] h-[70%] bg-violet-600/20 blur-[140px] -ml-[30%] -mb-[30%]" />
             
             <div className="relative z-10 max-w-4xl mx-auto">
-              <h2 className="display-lg text-white mb-10 text-balance">
+              <h2 className="display-lg text-white mb-12 text-balance leading-[0.95]">
                 Ready to transform <br />
                 your HR operations?
               </h2>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Link href="/designer" className="btn-blue h-18 px-14 text-xl">
-                  Launch App Now
+              <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
+                <Link href="/designer" className="btn-primary h-20 px-16 text-xl shadow-[0_20px_50px_rgba(37,99,235,0.4)]">
+                  Launch Platform Now
                 </Link>
-                <Link href="/docs" className="btn-secondary h-18 px-14 text-xl bg-white/5 border-white/10 text-white hover:bg-white/10">
-                  Explore Docs
+                <Link href="/docs" className="btn-secondary h-20 px-16 text-xl">
+                  View Architecture
                 </Link>
               </div>
-              <p className="mt-12 text-sm font-medium text-white/40 tracking-widest uppercase">
-                Free for teams up to 10 members • No setup required
+              <p className="mt-16 text-[12px] font-black text-white/30 tracking-[0.4em] uppercase">
+                Enterprise Grade • Zero Setup • Cloud Native
               </p>
             </div>
           </div>
