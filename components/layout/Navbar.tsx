@@ -63,12 +63,12 @@ export function Navbar({ dark = false }: NavProps) {
         <div className="hidden md:flex items-center gap-6">
           <Link 
             href="/designer" 
-            className={`btn-primary group !py-2.5 !px-6 !text-sm !rounded-full ${
-              dark && !scrolled ? 'bg-white !text-[#03071d] hover:bg-white/90' : ''
+            className={`btn-primary group !py-3 !px-7 !text-[13px] !font-bold !rounded-full shadow-xl shadow-blue-600/20 hover:shadow-blue-600/40 transition-all active:scale-95 ${
+              dark && !scrolled ? 'bg-white !text-[#03071d] hover:bg-white/90 shadow-none' : ''
             }`}
           >
             Open App
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform ml-1" />
           </Link>
         </div>
 

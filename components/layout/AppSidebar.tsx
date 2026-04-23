@@ -37,7 +37,7 @@ export function AppSidebar() {
       </div>
 
       {/* Nav Items */}
-      <nav className="flex-1 px-4 py-6 space-y-2">
+      <nav className="flex-1 px-3 py-8 space-y-1">
         {NAV_ITEMS.map((item) => {
           const active = pathname === item.href;
           return (
@@ -45,14 +45,17 @@ export function AppSidebar() {
               key={item.href}
               href={item.href}
               className={clsx(
-                "flex items-center gap-4 px-4 py-3 rounded-xl transition-all group",
+                "flex items-center gap-3.5 px-4 py-3.5 rounded-xl transition-all duration-300 group relative",
                 active 
-                  ? "bg-blue-600 text-white shadow-lg shadow-blue-600/20" 
+                  ? "bg-blue-600 text-white shadow-[0_8px_20px_rgba(37,99,235,0.3)]" 
                   : "text-white/40 hover:text-white hover:bg-white/5"
               )}
             >
-              <item.icon className={clsx("w-5 h-5 flex-shrink-0", active ? "text-white" : "group-hover:text-white")} />
-              {!collapsed && <span className="text-sm font-semibold">{item.label}</span>}
+              <item.icon className={clsx("w-5 h-5 flex-shrink-0 transition-transform group-hover:scale-110", active ? "text-white" : "group-hover:text-white")} />
+              {!collapsed && <span className="text-[14px] font-bold tracking-tight">{item.label}</span>}
+              {active && (
+                <div className="absolute right-3 w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
+              )}
             </Link>
           );
         })}

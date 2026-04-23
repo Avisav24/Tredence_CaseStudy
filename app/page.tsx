@@ -22,7 +22,7 @@ export default function LandingPage() {
       <Navbar dark />
 
       {/* ── Hero Section ────────────────────────────────────────── */}
-      <section className="relative pt-48 pb-32 lg:pt-64 lg:pb-48 bg-[#03071d] text-white overflow-hidden">
+      <section className="relative pt-64 pb-32 lg:pt-80 lg:pb-48 bg-[#03071d] text-white overflow-hidden">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] rounded-full bg-blue-600/20 blur-[120px] animate-pulse" />
@@ -38,26 +38,26 @@ export default function LandingPage() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-8 lg:px-12 flex flex-col items-center text-center z-20">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-10 animate-reveal shadow-2xl backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 border border-white/10 mb-12 animate-reveal shadow-2xl backdrop-blur-md">
             <Sparkles className="w-4 h-4 text-blue-400" />
-            <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-white/80">
+            <span className="text-[11px] font-black tracking-[0.25em] uppercase text-white/90">
               The Future of HR Operations
             </span>
           </div>
 
-          <h1 className="display-xl mb-10 animate-reveal text-balance" style={{ animationDelay: '0.1s' }}>
+          <h1 className="display-xl mb-12 animate-reveal text-balance leading-[1.05]" style={{ animationDelay: '0.1s' }}>
             Design HR Workflows <br />
             <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-500 bg-clip-text text-transparent">
               Without Limits.
             </span>
           </h1>
 
-          <p className="body-lg max-w-3xl text-white/50 mb-16 animate-reveal text-balance" style={{ animationDelay: '0.2s' }}>
+          <p className="body-lg max-w-3xl text-white/50 mb-16 animate-reveal text-balance leading-relaxed" style={{ animationDelay: '0.2s' }}>
             FlowHR is the ultimate visual playground for HR teams. Build, simulate, and automate complex 
             onboarding, performance reviews, and document workflows with zero code.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 animate-reveal" style={{ animationDelay: '0.3s' }}>
+          <div className="flex flex-col sm:flex-row gap-6 animate-reveal items-center justify-center" style={{ animationDelay: '0.3s' }}>
             <Link href="/designer" className="btn-blue h-16 px-12 text-lg group">
               Get Started for Free
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
