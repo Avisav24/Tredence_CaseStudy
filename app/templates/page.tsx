@@ -23,7 +23,7 @@ const TEMPLATES: Template[] = [
     title: 'Standard Onboarding',
     description: 'A 5-step journey for new hires including document collection and manager approval.',
     category: 'Human Resources',
-    icon: <Users className="w-8 h-8 text-blue-500" />,
+    icon: <Users className="w-9 h-9 text-blue-500" />,
     nodes: [
       { id: 'start', type: 'start', position: { x: 250, y: 50 }, data: { nodeType: 'start', label: 'Start', title: 'New Hire Start', status: 'idle', validationErrors: [], metadata: [] } },
       { id: 't1', type: 'task', position: { x: 250, y: 180 }, data: { nodeType: 'task', label: 'Task', title: 'Submit Documents', description: 'Collect all required documents.', assignee: 'New Hire', dueDate: '', customFields: [], status: 'idle', validationErrors: [] } },
@@ -41,7 +41,7 @@ const TEMPLATES: Template[] = [
     title: 'IT Hardware Request',
     description: 'Automated workflow for laptop and peripheral requests with manager approval.',
     category: 'IT Operations',
-    icon: <Zap className="w-8 h-8 text-emerald-500" />,
+    icon: <Zap className="w-9 h-9 text-emerald-500" />,
     nodes: [
       { id: 'start', type: 'start', position: { x: 250, y: 50 }, data: { nodeType: 'start', label: 'Start', title: 'Request Initiated', status: 'idle', validationErrors: [], metadata: [] } },
       { id: 'a1', type: 'approval', position: { x: 250, y: 180 }, data: { nodeType: 'approval', label: 'Approval', title: 'Budget Approval', approverRole: 'Manager', autoApproveThreshold: 0, status: 'idle', validationErrors: [] } },
@@ -59,7 +59,7 @@ const TEMPLATES: Template[] = [
     title: 'Leave Approval',
     description: 'Simple leave request flow with policy check and team notification.',
     category: 'Human Resources',
-    icon: <Briefcase className="w-8 h-8 text-amber-500" />,
+    icon: <Briefcase className="w-9 h-9 text-amber-500" />,
     nodes: [
       { id: 'start', type: 'start', position: { x: 250, y: 50 }, data: { nodeType: 'start', label: 'Start', title: 'Leave Requested', status: 'idle', validationErrors: [], metadata: [] } },
       { id: 'a1', type: 'approval', position: { x: 250, y: 180 }, data: { nodeType: 'approval', label: 'Approval', title: 'Manager Sign-off', approverRole: 'Manager', autoApproveThreshold: 0, status: 'idle', validationErrors: [] } },
@@ -117,14 +117,14 @@ export default function TemplatesPage() {
           {TEMPLATES.map((template, i) => (
             <div 
               key={template.id} 
-              className="card-premium group relative !p-16 animate-reveal flex flex-col h-full"
+              className="card-premium group relative !p-16 animate-reveal flex flex-col items-center text-center h-full"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
-              <div className="w-20 h-20 rounded-[2.5rem] bg-white/[0.02] border border-white/10 flex items-center justify-center mb-12 group-hover:scale-110 group-hover:border-blue-500/30 transition-all duration-700 shadow-2xl">
+              <div className="w-24 h-24 rounded-[2.5rem] bg-white/[0.02] border border-white/10 flex items-center justify-center mb-12 group-hover:scale-110 group-hover:border-blue-500/30 transition-all duration-700 shadow-2xl">
                 {template.icon}
               </div>
               
-              <div className="inline-flex self-start px-5 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-[11px] font-black text-blue-400 uppercase tracking-[0.3em] mb-10">
+              <div className="inline-flex px-6 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-[11px] font-black text-blue-400 uppercase tracking-[0.3em] mb-10">
                 {template.category}
               </div>
               
@@ -138,11 +138,11 @@ export default function TemplatesPage() {
               
               <button 
                 onClick={() => handleUseTemplate(template)}
-                className="btn-primary w-full justify-center !rounded-[1.5rem] py-6 group relative overflow-hidden"
+                className="btn-primary w-full justify-center !rounded-[1.5rem] py-7 group relative overflow-hidden"
               >
                 <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <span className="relative flex items-center gap-3">
-                  Instantiate Template 
+                <span className="relative flex items-center gap-3 text-lg">
+                  Use This Template 
                   <ArrowRight className="w-6 h-6 group-hover:translate-x-3 transition-transform" />
                 </span>
               </button>

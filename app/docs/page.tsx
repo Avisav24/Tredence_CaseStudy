@@ -74,20 +74,20 @@ export default function DocsPage() {
         </div>
       </section>
 
-      {/* --- Knowledge Hub Grid --- */}
+      {/* --- Knowledge Hub Grid (CENTERED) --- */}
       <section className="py-48 max-w-7xl mx-auto px-8 lg:px-16 border-t border-white/[0.03]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-48">
           {categories.map((cat, i) => (
-            <div key={i} className="animate-reveal group" style={{ animationDelay: `${i * 0.1}s` }}>
-              <div className={`w-16 h-16 rounded-[2rem] bg-white/[0.02] border border-white/5 flex items-center justify-center mb-10 group-hover:scale-110 group-hover:border-white/20 transition-all duration-500 shadow-xl`}>
+            <div key={i} className="animate-reveal group flex flex-col items-center text-center" style={{ animationDelay: `${i * 0.1}s` }}>
+              <div className={`w-20 h-20 rounded-[2.5rem] bg-white/[0.02] border border-white/5 flex items-center justify-center mb-10 group-hover:scale-110 group-hover:border-white/20 transition-all duration-500 shadow-xl`}>
                 {cat.icon}
               </div>
               <h3 className="text-2xl font-black text-white mb-10 tracking-tight">{cat.title}</h3>
-              <ul className="space-y-6">
+              <ul className="space-y-6 flex flex-col items-center">
                 {cat.links.map(link => (
                   <li key={link}>
                     <Link href="#" className="text-[16px] font-bold text-white/30 hover:text-blue-400 transition-all duration-300 flex items-center gap-4 group/item">
-                      <div className="w-2 h-2 rounded-full bg-white/10 group-hover/item:bg-blue-400 group-hover/item:scale-125 transition-all" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-white/10 group-hover/item:bg-blue-400 group-hover/item:scale-150 transition-all" />
                       {link}
                     </Link>
                   </li>
@@ -97,15 +97,13 @@ export default function DocsPage() {
           ))}
         </div>
 
-        {/* --- Featured Guides - Spatial Overhaul --- */}
+        {/* --- Featured Guides (CENTERED) --- */}
         <div className="border-t border-white/[0.05] pt-48">
-          <div className="flex items-center justify-between mb-24">
-            <div>
-              <p className="text-blue-500 text-[12px] font-black tracking-[0.4em] uppercase mb-4">Case Studies</p>
-              <h2 className="display-lg text-white">Featured Guides</h2>
-            </div>
-            <Link href="#" className="group flex items-center gap-4 px-8 py-4 rounded-2xl bg-white/5 border border-white/10 text-sm font-black text-white uppercase tracking-widest hover:bg-white/10 transition-all">
-              View All <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+          <div className="flex flex-col items-center text-center mb-24">
+            <p className="text-blue-500 text-[12px] font-black tracking-[0.4em] uppercase mb-4">Case Studies</p>
+            <h2 className="display-lg text-white mb-10">Featured Guides</h2>
+            <Link href="#" className="group flex items-center gap-4 px-10 py-5 rounded-2xl bg-white/5 border border-white/10 text-sm font-black text-white uppercase tracking-widest hover:bg-white/10 transition-all">
+              View All Resources <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
             </Link>
           </div>
 
@@ -115,16 +113,12 @@ export default function DocsPage() {
               { title: 'API Integration Masterclass', desc: 'Step-by-step guide to connecting FlowHR to your existing enterprise HRIS systems using dynamic variables.', category: 'ENGINEERING' },
               { title: 'Optimizing Approval Chains', desc: 'Advanced techniques for reducing bottlenecks in multi-layer global approval steps with conditional logic.', category: 'STRATEGY' }
             ].map((guide, i) => (
-              <Link key={i} href="#" className="card-premium group relative !p-16 overflow-hidden">
-                <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-                   <ArrowRight className="w-12 h-12 -rotate-45" />
-                </div>
-                
-                <p className="text-[10px] font-black text-blue-500 tracking-[0.3em] uppercase mb-8">{guide.category}</p>
+              <Link key={i} href="#" className="card-premium group relative !p-16 flex flex-col items-center text-center overflow-hidden">
+                <p className="text-[11px] font-black text-blue-500 tracking-[0.3em] uppercase mb-8">{guide.category}</p>
                 <h4 className="text-3xl font-black text-white mb-8 group-hover:text-blue-400 transition-colors tracking-tight leading-tight">{guide.title}</h4>
                 <p className="text-lg text-white/40 mb-12 line-clamp-3 leading-relaxed font-medium">{guide.desc}</p>
                 
-                <div className="flex items-center gap-3 text-xs font-black text-blue-400 uppercase tracking-[0.2em] pt-8 border-t border-white/5">
+                <div className="flex items-center gap-3 text-xs font-black text-blue-400 uppercase tracking-[0.2em] pt-8 border-t border-white/5 w-full justify-center">
                   Read Full Guide <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-3" />
                 </div>
               </Link>

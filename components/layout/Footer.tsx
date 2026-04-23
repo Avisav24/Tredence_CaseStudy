@@ -67,70 +67,67 @@ export function Footer() {
 
   return (
     <footer className="bg-[#03071d] text-white/40 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-8 lg:px-16 py-48">
-        {/* Top row */}
-        <div className="flex flex-col lg:flex-row gap-24 lg:gap-32">
-          {/* Brand */}
-          <div className="lg:w-96 flex-shrink-0">
-            <Link href="/" className="flex items-center gap-5 mb-12 no-underline group">
-              <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-                <Workflow className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-white font-black text-2xl tracking-tighter" style={{ fontFamily: 'var(--font-display)' }}>
-                FlowHR
-              </span>
-            </Link>
-            <p className="text-[17px] leading-relaxed mb-12 text-white/30 font-medium">
-              The modern standard for visual HR automation. Empowers teams to build, simulate, and automate complex human resource workflows with zero code.
-            </p>
-            <div className="flex gap-6">
-              {[Github, Twitter, Linkedin].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="w-12 h-12 rounded-2xl flex items-center justify-center bg-white/5 border border-white/10 text-white/30 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all shadow-premium"
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
-              ))}
+      <div className="max-w-7xl mx-auto px-8 lg:px-16 py-48 flex flex-col items-center text-center">
+        {/* Brand Section (CENTERED) */}
+        <div className="max-w-2xl mb-32 flex flex-col items-center">
+          <Link href="/" className="flex items-center gap-5 mb-12 no-underline group">
+            <div className="w-16 h-16 rounded-[2rem] bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-3xl">
+              <Workflow className="w-7 h-7 text-white" />
             </div>
-          </div>
-
-          {/* Link columns */}
-          <div className="flex-1 grid grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-12">
-            {cols.map(col => (
-              <div key={col.title}>
-                <p className="text-[12px] font-black uppercase tracking-[0.3em] mb-10 text-white/20">
-                  {col.title}
-                </p>
-                <ul className="flex flex-col gap-6">
-                  {col.links.map(link => (
-                    <li key={link}>
-                      <Link
-                        href="#"
-                        className="text-[15px] no-underline text-white/40 hover:text-blue-400 transition-all flex items-center group/item font-bold"
-                      >
-                        {link}
-                        <ArrowRight className="w-4 h-4 ml-3 opacity-0 -translate-x-3 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" />
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <span className="text-white font-black text-3xl tracking-tighter" style={{ fontFamily: 'var(--font-display)' }}>
+              FlowHR
+            </span>
+          </Link>
+          <p className="text-[19px] leading-relaxed mb-12 text-white/30 font-medium">
+            The modern standard for visual HR automation. Empowers teams to build, simulate, and automate complex human resource workflows with zero code.
+          </p>
+          <div className="flex gap-8 justify-center">
+            {[Github, Twitter, Linkedin].map((Icon, i) => (
+              <a
+                key={i}
+                href="#"
+                className="w-14 h-14 rounded-2xl flex items-center justify-center bg-white/5 border border-white/10 text-white/30 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all shadow-premium"
+              >
+                <Icon className="w-6 h-6" />
+              </a>
             ))}
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="mt-24 pt-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-[13px] border-t border-white/5 text-white/30 font-medium">
-          <p>© 2026 FlowHR, Inc. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            <p className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-              Systems Operational
-            </p>
-            <p className="hidden sm:block">Built for Tredence Engineering</p>
+        {/* Link columns (CENTERED) */}
+        <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-20 lg:gap-32 mb-32 border-t border-white/5 pt-32">
+          {cols.map(col => (
+            <div key={col.title} className="flex flex-col items-center">
+              <p className="text-[13px] font-black uppercase tracking-[0.4em] mb-12 text-white/20">
+                {col.title}
+              </p>
+              <ul className="flex flex-col gap-8 items-center">
+                {col.links.map(link => (
+                  <li key={link}>
+                    <Link
+                      href="#"
+                      className="text-[16px] no-underline text-white/40 hover:text-blue-400 transition-all flex items-center group/item font-bold"
+                    >
+                      {link}
+                      <ArrowRight className="w-4 h-4 ml-3 opacity-0 -translate-x-3 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom Metadata (CENTERED) */}
+        <div className="w-full mt-32 pt-16 flex flex-col items-center gap-10 text-[15px] border-t border-white/5 text-white/20 font-black tracking-widest uppercase">
+          <div className="flex flex-col sm:flex-row items-center gap-12">
+            <p>© 2026 FlowHR, Inc. Global Automation</p>
+            <div className="flex items-center gap-4">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
+              System Core: Operational
+            </div>
           </div>
+          <p className="opacity-40">Architected for Tredence Engineering Excellence</p>
         </div>
       </div>
     </footer>
